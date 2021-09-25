@@ -1,11 +1,7 @@
-ul{
-    
+.NavBar{
+    background-color: darkorange;
+    height: 80px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
 }
 
-li{
-    text-decoration: none;
-    display: flex;
-    padding: 0 50px;
-}
