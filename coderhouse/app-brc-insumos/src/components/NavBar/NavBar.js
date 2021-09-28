@@ -7,7 +7,7 @@ const NavBar = () => {
     return(
         <div className="NavBar">
             <Button size="large">
-            Inicio
+            BRC Store
             </Button>
             <Button size="large">
             Tienda
