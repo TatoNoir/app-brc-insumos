@@ -19,7 +19,7 @@ const NavBar = () => {
            <li> <Button size="large">
             Contacto
             </Button></li>
-           <li><CartWidget/></li>
+           <li><CartWidget cantidad="1"/></li>
         </ul>
     )
 }

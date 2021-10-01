@@ -3,10 +3,11 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import "./CartWidget.css";
 
-const CartWidget = () => {
+const CartWidget = ({ cantidad }) => {
   return (
     <div className="iconoCart">
-        <ShoppingCartIcon/>
+      <ShoppingCartIcon />
+      <h2>{cantidad}</h2>
     </div>
   );
 };
