@@ -2,23 +2,25 @@ import React from 'react'
 import Button from '@material-ui/core/Button'
 
 import './NavBar.css'
+import CartWidget from '../CartWidget/CartWidget'
 
 const NavBar = () => {
     return(
-        <div className="NavBar">
-            <Button size="large">
+        <ul className="NavBar">
+           <li> <Button size="large">
             BRC Store
-            </Button>
-            <Button size="large">
+            </Button></li>
+           <li><Button size="large">
             Tienda
-            </Button>
-            <Button size="large">
+            </Button></li>
+           <li><Button size="large">
             Nuestras marcas
-            </Button>
-            <Button size="large">
+            </Button></li>
+           <li> <Button size="large">
             Contacto
-            </Button>
-        </div>
+            </Button></li>
+           <li><CartWidget/></li>
+        </ul>
     )
 }
 
