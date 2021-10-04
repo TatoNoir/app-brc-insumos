@@ -5,6 +5,8 @@ import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget'
 
 const NavBar = () => {
+
+    
     return(
         <ul className="NavBar">
            <li> <Button size="large">
