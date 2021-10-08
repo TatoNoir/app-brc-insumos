@@ -61,12 +61,12 @@ const ItemList = (props) => {
     <div className="ItemList">
       {result.map((item) => (
         <Item
+          stock={item.stock}
           key={item.id}
           className="Item"
-          Item={item.descripcion}
-          Image={item.img}
-          /*price={item.price}*/
-          stock="20"
+          Item={item.name}
+          image={item.img}
+          price="200 dls"
         ></Item>
       ))}
       {console.log(result)}
