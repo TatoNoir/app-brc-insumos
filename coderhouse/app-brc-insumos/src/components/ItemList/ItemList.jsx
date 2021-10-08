@@ -41,7 +41,7 @@ const ItemList = (props) => {
   });
 
   useEffect(() => {
-    if (!result) {
+    if (result) {
       tarea
         .then((res, err) => {
           if (err) console.log(err);
@@ -69,6 +69,7 @@ const ItemList = (props) => {
           stock="20"
         ></Item>
       ))}
+      {console.log(result)}
     </div>
   );
 };
