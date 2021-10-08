@@ -1,0 +1,17 @@
+import React from "react";
+import Button from "@material-ui/core/Button";
+import ItemCount from "../ItemCount/ItemCount";
+import "./Item.css";
+
+const Item = ({ Item, image, price, stock }) => {
+  return (
+    <div className="Item">
+      <ItemCount Item={Item} stock={stock} />
+      <img src={image} alt={Item}/>
+      <h3>Precio: {price}</h3>
+      <Button>Agregar al carro</Button>
+    </div>
+  );
+};
+
+export default Item;
