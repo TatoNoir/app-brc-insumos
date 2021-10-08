@@ -1,106 +1,76 @@
-import React from "react";
-import Button from "@material-ui/core/Button";
+import React, { useEffect, useState } from "react";
 import "./ItemList.css";
 import Item from "../Item/Item";
 
-const productos = [
-  [
-    {
-      title: "hamburguesa",
-      price: 450,
-      thumbnail:
-        "https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-      id: 1,
-    },
-    {
-      title: "pizza",
-      price: 800,
-      thumbnail:
-        "https://images.pexels.com/photos/4394612/pexels-photo-4394612.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-      id: 2,
-    },
-    {
-      title: "papas fritas",
-      price: 300,
-      thumbnail:
-        "https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-      id: 3,
-    },
-    {
-      title: "empanadas",
-      price: 920,
-      thumbnail:
-        "https://images.pexels.com/photos/6535195/pexels-photo-6535195.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-      id: 4,
-    },
-    {
-      title: "lasaña",
-      price: 750,
-      thumbnail:
-        "https://images.pexels.com/photos/5949900/pexels-photo-5949900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      id: 5,
-    },
-    {
-      title: "カルボナーラ",
-      price: 850,
-      thumbnail:
-        "https://images.pexels.com/photos/5710170/pexels-photo-5710170.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      id: 6,
-    },
-    {
-      title: "握り寿司",
-      price: 1600,
-      thumbnail:
-        "https://images.pexels.com/photos/2098143/pexels-photo-2098143.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      id: 7,
-    },
-  ],
-];
+const ItemList = (props) => {
+  const [result, setResult] = useState([]);
 
-const obtenerProductos = new Promise((resolve, reject) => {
-  //Este setTimeout va a simular la demora del tiempo de respuesta que pueda tener un servidor al cual le solicito la lista de productos
-  const estadoDePromesa = true;
+  const tarea = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve([
+        {
+          id: 1,
+          name: "Iphone 6",
+          descripcion: "Celular",
+          stock: 10,
+          img: "https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP705/SP705-iphone_6-mul.png",
+        },
+        {
+          id: 2,
+          name: "Samsung S21",
+          descripcion: "Celular",
+          stock: 3,
+          img: "https://i.blogs.es/d9faf7/samsung-galaxy-s21-ultra-00-02/450_1000.jpg",
+        },
+        {
+          id: 3,
+          name: "Alcatel 1V",
+          descripcion: "Celular",
+          stock: 6,
+          img: "https://i.blogs.es/6947e3/alcatel1v2020/450_1000.jpg",
+        },
+        {
+          id: 4,
+          name: "Iphone XS",
+          descripcion: "Celular",
+          stock: 4,
+          img: "https://m.media-amazon.com/images/I/81wcv7XP3cL._AC_SL1500_.jpg",
+        },
+      ]);
+    }, 3000);
+  });
 
-  setTimeout(() => {
-    if (estadoDePromesa) {
-      //si la promesa se ejecuta satisfactoriamente, entonces enviaré mi respuesta como parámetro del método resolve() en este caso enviaré mi lista de productos.
-      resolve(productos);
-    } else {
-      reject("No se pudo conectar con el servidor");
+  useEffect(() => {
+    if (!result) {
+      tarea
+        .then((res, err) => {
+          if (err) console.log(err);
+          setResult(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => console.log("Finalizado"));
     }
-    //acá indico que quiero que este setTimeout demore 3 segundos
-  }, 3000);
-});
+    console.log(result);
+  }, [result]);
 
-//Voy a ejecutar mi función, pero como se trata de una promesa, es necesario colocar el .then( ) luego del nombre de mi función para tratar la repuesta
+  // Recuerde que result , setResult es el hook de useState
 
-
-const ItemList = (props) => {    
-
-    
-    obtenerProductos
-      .then((res) => {
-        const { listaProductos } = res;
-        console.log(listaProductos);
-        console.log(res);
-     })
-        .catch((err) => console.log(err));
-   
-
-    return (
-      <div className="ItemList">
-        {productos.map((todo, index) => (
-          <Item
-            key={index}
-            className="Item"
-            Item={todo.title}
-            Image={todo.thumbnail}
-            price={todo.price}
-            stock="20"
-          ></Item>
-        ))}
-      </div>
-    );
+  return (
+    <div className="ItemList">
+      {result.map((item) => (
+        <Item
+          key={item.id}
+          className="Item"
+          Item={item.descripcion}
+          Image={item.img}
+          /*price={item.price}*/
+          stock="20"
+        ></Item>
+      ))}
+    </div>
+  );
 };
 
 export default ItemList;
