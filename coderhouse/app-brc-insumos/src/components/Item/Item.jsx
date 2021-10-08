@@ -7,7 +7,7 @@ const Item = ({ Item, image, price, stock }) => {
   return (
     <div className="Item">
       <ItemCount Item={Item} stock={stock} />
-      <img src={image} alt={Item}/>
+      <img src={image} alt={Item} className="Item-img"/>
       <h3>Precio: {price}</h3>
       <Button>Agregar al carro</Button>
     </div>

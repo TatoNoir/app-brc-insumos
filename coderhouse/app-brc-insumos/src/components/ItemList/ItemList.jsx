@@ -57,35 +57,49 @@ const productos = [
   ],
 ];
 
+const obtenerProductos = new Promise((resolve, reject) => {
+  //Este setTimeout va a simular la demora del tiempo de respuesta que pueda tener un servidor al cual le solicito la lista de productos
+  const estadoDePromesa = true;
+
+  setTimeout(() => {
+    if (estadoDePromesa) {
+      //si la promesa se ejecuta satisfactoriamente, entonces enviaré mi respuesta como parámetro del método resolve() en este caso enviaré mi lista de productos.
+      resolve(productos);
+    } else {
+      reject("No se pudo conectar con el servidor");
+    }
+    //acá indico que quiero que este setTimeout demore 3 segundos
+  }, 3000);
+});
+
+//Voy a ejecutar mi función, pero como se trata de una promesa, es necesario colocar el .then( ) luego del nombre de mi función para tratar la repuesta
 
 
-const ItemList = (props) => {
-    const obtenerProductos = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(productos);
-      }, 3000);
-    });
+const ItemList = (props) => {    
 
+    
+    obtenerProductos
+      .then((res) => {
+        const { listaProductos } = res;
+        console.log(listaProductos);
+        console.log(res);
+     })
+        .catch((err) => console.log(err));
    
+
     return (
-        <div className="ItemList">
-        {/* {productos.map((todo, index) => (
-            <Item
+      <div className="ItemList">
+        {productos.map((todo, index) => (
+          <Item
+            key={index}
+            className="Item"
             Item={todo.title}
             Image={todo.thumbnail}
             price={todo.price}
             stock="20"
-            ></Item>
-        ))} */}
-
-        <Item
-          Item="Remera"
-          Image="https://images.pexels.com/photos/2098143/pexels-photo-2098143.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          price="100"
-          stock="20"
-        ></Item>
-        
-        </div>
+          ></Item>
+        ))}
+      </div>
     );
 };
 

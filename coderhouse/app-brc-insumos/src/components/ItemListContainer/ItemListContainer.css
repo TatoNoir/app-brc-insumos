@@ -2,8 +2,5 @@
     padding: 20px 200px;
     height: 100vh;    
     background-color: #919191;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    grid-auto-rows: 400px;
+    
 }
