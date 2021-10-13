@@ -2,14 +2,16 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import ItemCount from "../ItemCount/ItemCount";
 import "./Item.css";
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 
 const Item = ({ Item, image, price, stock }) => {
   return (
     <div className="Item">
       <ItemCount Item={Item} stock={stock} />
-      <img src={image} alt={Item} className="Item-img"/>
+      <img src={image} alt={Item} className="Item-img" />
       <h3>Precio: {price}</h3>
-      <Button>Agregar al carro</Button>
+      <Button>Ver detalle</Button>
+      <ItemDetailContainer Item="Item"></ItemDetailContainer>
     </div>
   );
 };

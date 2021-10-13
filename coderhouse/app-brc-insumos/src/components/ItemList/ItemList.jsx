@@ -52,7 +52,6 @@ const ItemList = (props) => {
         })
         .finally(() => console.log("Finalizado"));
     }
-    console.log(result);
   }, [result]);
 
   // Recuerde que result , setResult es el hook de useState
@@ -69,7 +68,6 @@ const ItemList = (props) => {
           price="200 dls"
         ></Item>
       ))}
-      {console.log(result)}
     </div>
   );
 };
