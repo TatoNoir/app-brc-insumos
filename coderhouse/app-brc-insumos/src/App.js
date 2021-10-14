@@ -1,6 +1,8 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './components/Home/Home';
+import Store from './components/Store/Store';
 
 function App() {
 
@@ -8,12 +10,18 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar/>
-      
-      <ItemListContainer greeting="Bienvenidos a nuestra tienda!">
-        
-        
-      </ItemListContainer>
+      <BrowserRouter>
+        <NavBar/>
+        <Switch>
+          <Route exact path="/Home">
+            <Home />
+          </Route>
+          <Route exact path="/Store">
+            <Store />
+          </Route>
+         
+        </Switch>
+      </BrowserRouter>
       
     </div>
   );

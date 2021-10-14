@@ -11,7 +11,6 @@ const Item = ({ Item, image, price, stock }) => {
       <img src={image} alt={Item} className="Item-img" />
       <h3>Precio: {price}</h3>
       <Button>Ver detalle</Button>
-      <ItemDetailContainer Item="Item"></ItemDetailContainer>
     </div>
   );
 };
