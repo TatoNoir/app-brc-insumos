@@ -4,10 +4,7 @@ import ItemListContainer from "../ItemListContainer/ItemListContainer";
 
 function Store() {
   return (
-    <div className="StoreContainer">
-      <NavBar />
       <ItemListContainer greeting="Bienvenidos a nuestra tienda!"></ItemListContainer>
-    </div>
   );
 }
 
