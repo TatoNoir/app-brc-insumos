@@ -1,7 +1,5 @@
 import React from "react";
-import ItemCount from "../ItemCount/ItemCount";
 import "./ItemListContainer.css";
-import Item from "../Item/Item";
 import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = ({ greeting }) => {

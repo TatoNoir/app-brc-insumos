@@ -1,5 +1,5 @@
 .NavBar{
-    background-color: darkorange;
+    background-color: #599b89;
     height: 80px;
     display: flex;
     justify-content: space-around;
@@ -13,5 +13,6 @@ li{
 
 a{
     text-decoration: none;
-    font-size: 35px;
+    font-size: 25px;
+    color: #ffffff;
 }

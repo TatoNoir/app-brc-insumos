@@ -2,7 +2,6 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import ItemCount from "../ItemCount/ItemCount";
 import "./Item.css";
-import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 
 const Item = ({ Item, image, price, stock }) => {
   return (
